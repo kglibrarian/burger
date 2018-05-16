@@ -1,9 +1,12 @@
+// Set up MySQL connection.
+var mysql = require("mysql");
+
 // MySQL DB Connection Information (remember to change this with our specific credentials)
 var connection = mysql.createConnection({
     host: "localhost",
     user: "Karen",
     password: "test827",
-    database: "wizard_schools_db"
+    database: "burgers_db"
   });
   
   // Initiate MySQL Connection.
@@ -16,3 +19,4 @@ var connection = mysql.createConnection({
   });
 
   module.exports = connection; 
+
