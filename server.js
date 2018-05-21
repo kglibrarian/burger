@@ -12,6 +12,7 @@ var PORT = process.env.PORT || 8080;
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
+
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");

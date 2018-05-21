@@ -2,11 +2,7 @@
 var orm	= require('../config/orm.js');
 var path = require('path');
 
-// * Also inside `burger.js`, create the code that will call the 
-//ORM functions using burger specific input for the ORM.
-// Import the ORM to create functions that will interact with the database.
-var orm = require("../config/orm.js");
-
+//Create a variable called burger that calls selectAll 
 var burger = {
   selectAll: function(cb) {
     orm.selectAll("burgers", function(res) {

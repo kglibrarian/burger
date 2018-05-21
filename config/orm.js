@@ -67,7 +67,12 @@ module.exports = orm;
 
 
 
-
+// DELETE route for deleting todos. We can access the ID of the todo to delete in
+  // req.params.id
+  // app.delete("/api/todos/:id", function(req, res) {
+  //   orm.deleteTodo(req.params.id, function(results) {
+  //     res.json(results);
+  //   });
 
   
 
