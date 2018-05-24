@@ -27,9 +27,9 @@ router.get("/burgers", function(req, res) {
 
 router.post("/burgers/create", function(req, res) {
   burger.create([
-    "burgername"
+    "burgername", "devoured"
   ], [
-    req.body.burgername
+    req.body.burgername, req.body.devoured
   ], function(result) {
     // Send back the ID of the new quote
     console.log("This is the req.body.burgername" + req.body.burgername)
