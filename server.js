@@ -2,6 +2,7 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
 var mysql = require("mysql");
+var bodyParser = require("body-parser");
 // Create an instance of the express app.
 var app = express();
 
@@ -11,6 +12,12 @@ var PORT = process.env.PORT || 8080;
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 
 // Set Handlebars as the default templating engine.

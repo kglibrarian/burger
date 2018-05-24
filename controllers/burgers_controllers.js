@@ -20,25 +20,27 @@ router.get("/burgers", function(req, res) {
     var hbsObject = {
       burgers: data
     };
-    console.log("This is the hbsObject" + hbsObject);
+    console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
 
 router.post("/burgers/create", function(req, res) {
+  var burgerName= req.body.burger_name;
+  console.log(burgerName);
   burger.create([
-    "burgername", "devoured"
+    "burger_name", "devoured"
   ], [
-    req.body.burgername, req.body.devoured
+    burgerName, false
   ], function(result) {
     // Send back the ID of the new quote
-    console.log("This is the req.body.burgername" + req.body.burgername)
+    console.log("This is the req.body.burgername" + req.body.burger_name)
     //res.json({ id: result.insertId });
-      res.redirect('/burgers');
+      res.redirect('/');
   });
 });
 
-router.put("/burgers/update/:id", function(req, res) {
+router.put("/burgers/:id", function(req, res) {
   var devoured = "id = " + req.params.id;
 
   console.log("devoured", devoured);
@@ -46,8 +48,8 @@ router.put("/burgers/update/:id", function(req, res) {
  burger.update({
     //devoured: req.body.devoured
       devoured: true
-  }, condition, function(result) {
-    res.redirect('/burgers');
+  }, devoured, function(result) {
+    res.redirect('/');
     
     // if (result.changedRows == 0) {
     //   // If no rows were changed, then the ID must not exist, so 404

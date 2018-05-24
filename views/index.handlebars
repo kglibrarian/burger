@@ -1,19 +1,57 @@
 {{!-- * Create a button in `index.handlebars` that 
 will submit the user input into the database. --}}
 <div class ="container">
-  
-<form class="create-form">
+  <div class="row">
+    {{!-- Left Column --}}
+    <div class="col-sm-12 col-md-4 col-lg-4 mb-5 align-items-center">
+      <h5 class="title text-center">Do you want to eat these burgers?</h5>
+        {{#each burgers}}
+          {{#unless this.devoured}}
+            <div class="border rounded row height-25%">
+              <div class="bg-white col text-center">
+                {{this.burger_name}}
+              </div>
+              <div class="bg-white col">
+                <form class="devour_form d-flex align-items-center">
+                  <input type="hidden" class="burger_id" type="text" value="{{this.id}}"><br>
+                  <button type="submit" class="btn btn-warning burger_id rounded text-white " data-id="{{this.id}}">Devour it!</button>
+                </form>
+              </div>
+            </div>
+          {{/unless}}
+        {{/each}}
+    </div>
 
-   <div class="col-sm-12 col-md-4 col-lg-4 mb-5 align-items-center text-center">
-    <form class="create-burger">
-      <div class="form-group">
-        <label for="bn">Enter the name of a burger you want to eat. Click Submit.</label>
-          <input type="text" id= "bn" name="burgername" placeholder="burger name" class="form-control" rows="3">
-        </div>   
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div class="col-sm-12 col-md-4 col-lg-4 mb-5 align-items-center text-center">
+      <form class="create-form" action="/burgers/create" method="POST">
+        <div class="form-group">
+          <label for="bn"><h5>Enter the name of a burger you want to eat. Click Submit.</h5></label>
+            <input type="text" id= "bn" name="burger_name" placeholder="burger name" class="form-control" rows="3">
+         </div>   
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  
+    {{!-- Right Column --}}
+    <div class="col-sm-12 col-md-4 col-lg-4 mb-5 align-items-center">
+      <h5 class="title text-center">These burgers have already been devoured.</h5>
+      {{!-- <h2>Burgers that are devoured:</h2> --}}
+      {{#each burgers}}
+        {{#if this.devoured}}
+          <div>
+            <div class="border rounded row">
+              <div class="bg-white col h-25 py-3 text-center">
+                {{this.burger_name}}
+              </div>
+            </div>
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
   </div>
 </div>
+
+
 
 {{!-- {{#each burger_data}}
     {{#if this.devoured}} --}}
