@@ -7,11 +7,11 @@ will submit the user input into the database. --}}
       <h5 class="title text-center">Do you want to eat these burgers?</h5>
         {{#each burgers}}
           {{#unless this.devoured}}
-            <div class="border rounded row height-25%">
-              <div class="bg-white col text-center">
+            <div class="border rounded row bg-white ">
+              <div class="col text-center py-3 h-25 bg-white">
                 {{this.burger_name}}
               </div>
-              <div class="bg-white col">
+              <div class="bg-white col py-3 h-25">
                 <form class="devour_form d-flex align-items-center">
                   <input type="hidden" class="burger_id" type="text" value="{{this.id}}"><br>
                   <button type="submit" class="btn btn-warning burger_id rounded text-white " data-id="{{this.id}}">Devour it!</button>
