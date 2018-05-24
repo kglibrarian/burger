@@ -25,20 +25,20 @@ router.get("/burgers", function(req, res) {
   });
 });
 
-router.post("/api/burgers", function(req, res) {
+router.post("/burgers/create", function(req, res) {
   burger.create([
     "burgername"
   ], [
     req.body.burgername
   ], function(result) {
     // Send back the ID of the new quote
-    console.log("This is the req.body.burger_name" + req.body.burger_name)
+    console.log("This is the req.body.burgername" + req.body.burgername)
     //res.json({ id: result.insertId });
       res.redirect('/burgers');
   });
 });
 
-router.put("/api/burgers/:id", function(req, res) {
+router.put("/burgers/update/:id", function(req, res) {
   var devoured = "id = " + req.params.id;
 
   console.log("devoured", devoured);

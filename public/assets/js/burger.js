@@ -11,7 +11,7 @@ $(function() {
       console.log(newBurger);
 
       // Send the POST request.
-      $.ajax("/api/burgers", {
+      $.ajax("/burgers/create", {
         type: "POST",
         data: newBurger
       }).then(function() {
